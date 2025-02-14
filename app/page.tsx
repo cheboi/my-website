@@ -12,9 +12,10 @@ import {
   SiGraphql,
   SiDotnet,
   SiTypescript,
-  SiRuby
+  SiRuby,
+  SiPostgresql,
 } from "react-icons/si";
-import { TbBrandCSharp } from "react-icons/tb";
+import { TbBrandCSharp, TbBrandAws  } from "react-icons/tb";
 
 export default function Home() {
   return (
@@ -38,6 +39,14 @@ export default function Home() {
                   className="text-white hover:text-blue-300 transition-colors"
                 >
                   Skills
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#experience"
+                  className="text-white hover:text-blue-300 transition-colors"
+                >
+                  Experience
                 </Link>
               </li>
               <li>
@@ -138,11 +147,21 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center p-4 border rounded-lg shadow hover:shadow-lg transition">
               <SiTypescript className="text-5xl text-blue-500 mb-4" />
-              <span className="text-lg font-medium text-blue-800">TypeScript</span>
+              <span className="text-lg font-medium text-blue-800">
+                TypeScript
+              </span>
             </div>
             <div className="flex flex-col items-center p-4 border rounded-lg shadow hover:shadow-lg transition">
               <SiRuby className="text-5xl text-red-600 mb-4" />
               <span className="text-lg font-medium text-blue-800">Ruby</span>
+            </div>
+            <div className="flex flex-col items-center p-4 border rounded-lg shadow hover:shadow-lg transition">
+              <SiPostgresql className="text-5xl text-blue-600 mb-4" />
+              <span className="text-lg font-medium text-blue-800">Postgresql</span>
+            </div>
+            <div className="flex flex-col items-center p-4 border rounded-lg shadow hover:shadow-lg transition">
+              <TbBrandAws className="text-5xl text-orange-400 mb-4" />
+              <span className="text-lg font-medium text-blue-800">AWS</span>
             </div>
           </div>
         </div>
@@ -164,6 +183,109 @@ export default function Home() {
             performance optimization. I love tackling challenging problems and
             continuously learning new technologies to refine my craft.
           </p>
+        </div>
+      </section>
+
+      <section id="experience" className="py-16 bg-blue-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-semibold text-blue-800 mb-8 text-center">
+            Work Experience
+          </h2>
+          <div className="flex flex-wrap -mx-4">
+            <div className="w-full md:w-1/2 px-4 mb-6">
+              <div className="p-6 border rounded-lg shadow hover:shadow-lg transition">
+                <h3 className="text-xl font-bold text-blue-800">
+                  Momi Foundation - Software Developer
+                </h3>
+                <p className="text-blue-700">April 2023 - Present</p>
+                <p className="text-blue-700 mt-2">
+                  Developing and maintaining web applications using modern
+                  technologies.
+                </p>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 px-4 mb-6">
+              <div className="p-6 border rounded-lg shadow hover:shadow-lg transition">
+                <h3 className="text-xl font-bold text-blue-800">
+                  Freelance - Software Engineer (Part-Time)
+                </h3>
+                <p className="text-blue-700">2023 - Present</p>
+                <p className="text-blue-700 mt-2">
+                  Providing freelance software engineering services on a
+                  part-time basis.
+                </p>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 px-4 mb-6">
+              <div className="p-6 border rounded-lg shadow hover:shadow-lg transition">
+                <h3 className="text-xl font-bold text-blue-800">
+                  The Jitu - Software Engineer
+                </h3>
+                <p className="text-blue-700">October 2022 - April 2023</p>
+                <p className="text-blue-700 mt-2">
+                  Developed robust solutions and contributed to software design.
+                </p>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 px-4 mb-6">
+              <div className="p-6 border rounded-lg shadow hover:shadow-lg transition">
+                <h3 className="text-xl font-bold text-blue-800">
+                  Upwork - Software Programmer
+                </h3>
+                <p className="text-blue-700">March 2022 - October 2022</p>
+                <p className="text-blue-700 mt-2">
+                  Worked on freelance projects as a software programmer.
+                </p>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 px-4 mb-6">
+              <div className="p-6 border rounded-lg shadow hover:shadow-lg transition">
+                <h3 className="text-xl font-bold text-blue-800">
+                  Side_Hustle - Front End Intern
+                </h3>
+                <p className="text-blue-700">October 2021 - March 2022</p>
+                <p className="text-blue-700 mt-2">
+                  Focused on front-end development and UI improvements during
+                  the internship.
+                </p>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 px-4 mb-6">
+              <div className="p-6 border rounded-lg shadow hover:shadow-lg transition">
+                <h3 className="text-xl font-bold text-blue-800">
+                  Momi Foundation - Technical Mentor
+                </h3>
+                <p className="text-blue-700">1 Year</p>
+                <p className="text-blue-700 mt-2">
+                  Mentored aspiring developers and provided technical guidance.
+                </p>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 px-4 mb-6">
+              <div className="p-6 border rounded-lg shadow hover:shadow-lg transition">
+                <h3 className="text-xl font-bold text-blue-800">
+                  Kenya Power - Intern
+                </h3>
+                <p className="text-blue-700">January 2018 - April 2018</p>
+                <p className="text-blue-700 mt-2">
+                  Assisted in development projects and gained valuable industry
+                  exposure.
+                </p>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 px-4 mb-6">
+              <div className="p-6 border rounded-lg shadow hover:shadow-lg transition">
+                <h3 className="text-xl font-bold text-blue-800">
+                  KPLC - IT Support/Software Programmer
+                </h3>
+                <p className="text-blue-700">January 2017 - April 2017</p>
+                <p className="text-blue-700 mt-2">
+                  Provided IT support and assisted with software programming
+                  tasks.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
