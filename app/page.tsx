@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import ContactForm from '@/components/ContactForm';
+import ContactForm from "@/components/ContactForm";
 
 import {
   SiJavascript,
@@ -9,12 +9,16 @@ import {
   SiNodedotjs,
   SiTailwindcss,
   SiHtml5,
+  SiGraphql,
+  SiDotnet,
+  SiTypescript,
+  SiRuby
 } from "react-icons/si";
+import { TbBrandCSharp } from "react-icons/tb";
 
 export default function Home() {
   return (
     <div>
-      {/* Sticky Navigation Bar */}
       <header className="sticky top-0 z-50 bg-gradient-to-r from-blue-700 to-blue-900 shadow-lg">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-white">CHEBOi</h1>
@@ -92,7 +96,6 @@ export default function Home() {
             My Skills
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Skill Card: JavaScript */}
             <div className="flex flex-col items-center p-4 border rounded-lg shadow hover:shadow-lg transition">
               <SiJavascript className="text-5xl text-yellow-500 mb-4" />
               <span className="text-lg font-medium text-blue-800">
@@ -120,6 +123,26 @@ export default function Home() {
             <div className="flex flex-col items-center p-4 border rounded-lg shadow hover:shadow-lg transition">
               <SiHtml5 className="text-5xl text-orange-500 mb-4" />
               <span className="text-lg font-medium text-blue-800">HTML5</span>
+            </div>
+            <div className="flex flex-col items-center p-4 border rounded-lg shadow hover:shadow-lg transition">
+              <SiGraphql className="text-5xl text-pink-500 mb-4" />
+              <span className="text-lg font-medium text-blue-800">GraphQl</span>
+            </div>
+            <div className="flex flex-col items-center p-4 border rounded-lg shadow hover:shadow-lg transition">
+              <SiDotnet className="text-5xl text-indigo-800 mb-4" />
+              <span className="text-lg font-medium text-blue-800">Dotnet</span>
+            </div>
+            <div className="flex flex-col items-center p-4 border rounded-lg shadow hover:shadow-lg transition">
+              <TbBrandCSharp className="text-5xl text-blue-500 mb-4" />
+              <span className="text-lg font-medium text-blue-800">C-Sharp</span>
+            </div>
+            <div className="flex flex-col items-center p-4 border rounded-lg shadow hover:shadow-lg transition">
+              <SiTypescript className="text-5xl text-blue-500 mb-4" />
+              <span className="text-lg font-medium text-blue-800">TypeScript</span>
+            </div>
+            <div className="flex flex-col items-center p-4 border rounded-lg shadow hover:shadow-lg transition">
+              <SiRuby className="text-5xl text-red-600 mb-4" />
+              <span className="text-lg font-medium text-blue-800">Ruby</span>
             </div>
           </div>
         </div>
@@ -178,15 +201,19 @@ export default function Home() {
         </div>
       </section>
 
-<section id="contacts" className="py-16 bg-blue-50">
-  <div className="container mx-auto px-4 text-center">
-    <h2 className="text-3xl font-semibold text-blue-800 mb-4">Get in Touch</h2>
-    <p className="text-blue-700 mb-8">
-      I'm always excited to connect and explore new opportunities. Whether you have a question or simply want to say hello, please drop me a message.
-    </p>
-    <ContactForm />
-  </div>
-</section>
+      <section id="contacts" className="py-16 bg-blue-50">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-semibold text-blue-800 mb-4">
+            Get in Touch
+          </h2>
+          <p className="text-blue-700 mb-8">
+            I'm always excited to connect and explore new opportunities. Whether
+            you have a question or simply want to say hello, please drop me a
+            message.
+          </p>
+          <ContactForm />
+        </div>
+      </section>
 
       <footer className="bg-gradient-to-r from-blue-700 to-blue-900 py-6">
         <div className="container mx-auto px-4 text-center text-white">
