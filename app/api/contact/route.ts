@@ -1,43 +1,41 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    const { name, email, message } = await request.json();
+    const { name, email, message } = await req.json();
+
     if (!name || !email || !message) {
-      return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+      return NextResponse.json(
+        { error: "All fields are required" },
+        { status: 400 }
+      );
     }
 
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: process.env.SMTP_SECURE === "true",
+      service: "Gmail",
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     const mailOptions = {
-      from: process.env.SMTP_FROM,
-      to: process.env.CONTACT_EMAIL,
+      from: email,
+      to: process.env.EMAIL_USER,
       subject: `New Contact Form Submission from ${name}`,
-      text: `You have received a new message from your portfolio contact form.
-      
-Name: ${name}
-Email: ${email}
-Message: ${message}`,
+      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     };
 
     await transporter.sendMail(mailOptions);
+
     return NextResponse.json(
-      { message: "Message sent successfully" },
+      { message: "Email sent successfully!" },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error sending email:", error);
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { error: "Failed to send email" },
       { status: 500 }
     );
   }
