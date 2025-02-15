@@ -15,14 +15,16 @@ import {
   SiRuby,
   SiPostgresql,
 } from "react-icons/si";
-import { TbBrandCSharp, TbBrandAws  } from "react-icons/tb";
+import { TbBrandCSharp, TbBrandAws } from "react-icons/tb";
 
 export default function Home() {
   return (
     <div>
       <header className="sticky top-0 z-50 bg-gradient-to-r from-blue-700 to-blue-900 shadow-lg">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-white">CHEBOi</h1>
+          <h1 className="text-2xl font-bold text-white">
+            <Link href="/">CHEBOi</Link>
+          </h1>
           <nav>
             <ul className="flex space-x-6">
               <li>
@@ -49,12 +51,21 @@ export default function Home() {
                   Experience
                 </Link>
               </li>
+
               <li>
                 <Link
                   href="#about"
                   className="text-white hover:text-blue-300 transition-colors"
                 >
                   About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/articles"
+                  className="text-white hover:text-blue-300 transition-colors"
+                >
+                  Articles
                 </Link>
               </li>
               <li>
@@ -157,7 +168,9 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center p-4 border rounded-lg shadow hover:shadow-lg transition">
               <SiPostgresql className="text-5xl text-blue-600 mb-4" />
-              <span className="text-lg font-medium text-blue-800">Postgresql</span>
+              <span className="text-lg font-medium text-blue-800">
+                Postgresql
+              </span>
             </div>
             <div className="flex flex-col items-center p-4 border rounded-lg shadow hover:shadow-lg transition">
               <TbBrandAws className="text-5xl text-orange-400 mb-4" />
