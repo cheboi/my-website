@@ -1,52 +1,93 @@
-import Link from "next/link";
+"use client";
 
-export default function Articles() {
+import { useEffect, useState } from "react";
+import Navbar from "@/components/Navbar";
+
+interface Article {
+  id: string;
+  title: string;
+  content: string;
+  votes: number;
+  image: string;
+}
+
+interface Comment {
+  id: string;
+  articleId: string;
+  text: string;
+  replies: Comment[];
+}
+
+export default function ArticlesPage() {
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [newComment, setNewComment] = useState<{ [articleId: string]: string }>(
+    {}
+  );
+  const [expandedComments, setExpandedComments] = useState<{
+    [articleId: string]: boolean;
+  }>({});
+
+  useEffect(() => {
+    fetch("/api/articles")
+      .then((res) => res.json())
+      .then((data) => {
+        setArticles(data);
+      });
+  }, []);
+
+  const handleVote = async (id: string, voteType: "upvote" | "downvote") => {
+    await fetch("/api/articles", {
+      method: "POST",
+      body: JSON.stringify({ id, voteType }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    setArticles((prev) =>
+      prev.map((article) =>
+        article.id === id
+          ? {
+              ...article,
+              votes: article.votes + (voteType === "upvote" ? 1 : -1),
+            }
+          : article
+      )
+    );
+  };
+
+  const fetchComments = async (articleId: string) => {
+    const response = await fetch(`/api/comments?articleId=${articleId}`);
+    const data = await response.json();
+    setComments(data);
+  };
+
   return (
-    <div className="min-h-screen bg-white">
-      <header className="sticky top-0 z-50 bg-gradient-to-r from-blue-700 to-blue-900 shadow-lg">
-        <div className="container mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-white">Articles</h1>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-semibold text-blue-800 mb-8">
-          Latest Articles
-        </h2>
-        <div className="space-y-6">
-          <div className="p-6 border rounded-lg shadow hover:shadow-lg transition">
-            <h3 className="text-2xl font-bold text-blue-800 mb-2">
-              Article Title 1
-            </h3>
-            <p className="text-blue-700 mb-4">
-              A short excerpt of the article that gives a brief overview of its
-              contents...
-            </p>
-            <Link
-              href="/articles/article-1"
-              className="text-blue-600 hover:underline"
+    <div>
+      <Navbar />
+      <div className="container mx-auto p-6 mt-20">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {articles.map((article) => (
+            <li
+              key={article.id}
+              className="p-4 bg-white rounded-lg shadow-lg text-center"
             >
-              Read More &rarr;
-            </Link>
-          </div>
-          {/* Article Card 2 */}
-          <div className="p-6 border rounded-lg shadow hover:shadow-lg transition">
-            <h3 className="text-2xl font-bold text-blue-800 mb-2">
-              Article Title 2
-            </h3>
-            <p className="text-blue-700 mb-4">
-              A short excerpt of the article that gives a brief overview of its
-              contents...
-            </p>
-            <Link
-              href="/articles/article-2"
-              className="text-blue-600 hover:underline"
-            >
-              Read More &rarr;
-            </Link>
-          </div>
-        </div>
-      </main>
+              {/* Wider Image (85-95% width) */}
+              <img
+                src={article.image}
+                alt={article.title}
+                className="w-[90%] h-48 object-cover rounded-lg mx-auto"
+              />
+              <a
+                href={`/articles/${article.id}`}
+                className="block text-xl font-semibold text-blue-700 mt-2"
+              >
+                {article.title}
+              </a>
+              <p className="mt-2 text-gray-700">{article.content}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
