@@ -9,7 +9,7 @@ export const projects: Project[] = [
     image: "/images/projects/portfolio.png",
     links: {
       github: "https://github.com/cheboi/my-website",
-      demo: "https://portfolio.com",
+      demo: "https://my-website-seven-livid.vercel.app/",
     },
     tech: ["Next.js", "Tailwind CSS", "TypeScript"],
     date: "2023-10-01",
@@ -22,7 +22,7 @@ export const projects: Project[] = [
     image: "/images/projects/e-commerce.png",
     links: {
       github: "https://github.com/cheboi/ecommerce",
-      demo: "https://ecommerce.com",
+      demo: "#",
     },
     tech: ["React", "Node.js", "Express", "Postgresql"],
     date: "2023-09-15",
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     image: "/images/projects/task-management-app.png",
     links: {
       github: "https://github.com/cheboi/task-management-app",
-      demo: "https://taskmanager.com",
+      demo: "#",
     },
     tech: ["Vue.js", "Firebase", "JavaScript"],
     date: "2023-08-20",
