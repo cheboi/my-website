@@ -101,7 +101,7 @@ export default function Home() {
               and scalable web solutions.
             </p>
             <Link
-              href="#projects"
+              href="/projects"
               className="inline-block bg-blue-700 text-white px-6 py-3 rounded-full shadow hover:bg-blue-800 transition"
             >
               View My Projects
