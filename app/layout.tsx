@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { ReactNode } from "react";
+import Footer from "@/components/Footer";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -8,6 +9,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <title>Moses Cheboi Portfolio</title>
       </head>
       <body>{children}</body>
+      <Footer />
     </html>
   );
 }

@@ -349,12 +349,6 @@ export default function Home() {
           <ContactForm />
         </div>
       </section>
-
-      <footer className="bg-gradient-to-r from-blue-700 to-blue-900 py-6">
-        <div className="container mx-auto px-4 text-center text-white">
-          &copy; {new Date().getFullYear()} Moses Cheboi. All rights reserved.
-        </div>
-      </footer>
     </div>
   );
 }
